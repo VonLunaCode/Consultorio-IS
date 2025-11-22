@@ -33,11 +33,11 @@ class AdminPanelProvider extends PanelProvider
             //      BRANDING AA CLINIC
             // =========================
 
-            ->brandName('AA Clinic')
+            ->brandName('AclinicLogo')
 
             // 👇 USAR ESTE ARCHIVO QUE YA EXISTE
-            ->brandLogo(asset('images/AAclinic.png'))
-            ->brandLogoHeight('6rem')
+            ->brandLogo(asset('images/AclinicLogo.png'))
+            ->brandLogoHeight('4rem')
 
             ->font('Nunito Sans')
 
