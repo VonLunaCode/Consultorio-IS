@@ -28,6 +28,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->passwordReset()
 
             // =========================
             //      BRANDING AA CLINIC
@@ -75,5 +76,8 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+
+            //agregar opcion para recupoerar contraseña 
+
     }
 }
