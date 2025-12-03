@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -27,9 +28,30 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->passwordReset()
+
+            // =========================
+            //      BRANDING AA CLINIC
+            // =========================
+
+            ->brandName('AclinicLogo')
+
+            // 👇 USAR ESTE ARCHIVO QUE YA EXISTE
+            ->brandLogo(asset('images/AclinicLogo.png'))
+            ->brandLogoHeight('4rem')
+
+            ->font('Nunito Sans')
+
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::hex('#4E6E54'),
+                'gray'    => Color::hex('#E9E0D4'),
             ])
+
+            ->defaultThemeMode(ThemeMode::Light)
+
+            // =========================
+            //    CONFIGURACIÓN BASE
+            // =========================
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
@@ -54,5 +76,8 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+
+            //agregar opcion para recupoerar contraseña 
+
     }
 }
